@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate.ejs') %>
+  <!-- <link rel="stylesheet" href="/stylesheets/mainpage2.css"> -->
+  <style>
+
+  </style>
+
+
+
+
+  <div class="mainpage">
+    <!-- <h1>All Questions</h1> -->
+    <% for (let q of quest){ %>
+      <div class="mainpage__questionAnswer">
+        <div class="wholeQuestionAndAnswer">
+          <div class="question">
+            <div class="question__question">
+              <%= q.question %>
+                <p>Total answers : <%= q.answer.length %>
+                </p>
+            </div>
+
+            <small class="text-muted"><i>asked by - <%= q.author.username %> on <%= q.dateOfAsking %></i></small>
+          </div>
+          <hr>
+          <div class="answer">
+            <div class="answer__ans">
+              <% if (q.answer.length) { %>
+                <div>
+                  <%= q.answer[0].answer %>
+                </div>
+                <% } %>
+                  <% if (!q.answer.length) { %>
+                    <div> No Answers for the question</div>
+                    <% } %>
+            </div>
+            <div class="button__viewMore"><a href="/question/<%= q._id %>">View More</a></div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+  </div>

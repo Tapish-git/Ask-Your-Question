@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  min-height: 100vh;
+
+  background: 0333;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+
+  font-family: consolas;
+}
+
+.containerNew {
+  width: 1000px;
+
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.containerNew .card {
+  position: relative;
+
+  cursor: pointer;
+}
+
+.containerNew .card .face {
+  transition: 1;
+  border-radius: 7px;
+  width: 300px;
+  height: 200px;
+}
+
+.containerNew .card .face.facel {
+  position: relative;
+
+  background: #333;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.containerNew .card:hover .face.facel {
+  background: #5e887c;
+  transform: translateY(0);
+}
+
+.containerNew .card .face.facel .content {
+  opacity: 0.2;
+
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerNew .card:hover .face.facel .content {
+  opacity: 1;
+}
+
+.containerNew .card .face.facel .content img {
+  max-width: 100px;
+
+  /* object-fit: fill; */
+}
+
+.containerNew .card .face.facel .content h3 {
+  margin: 10px 0 0;
+
+  padding: 0;
+  color: #fff;
+
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.containerNew .card .face.face2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  position: relative;
+  background: #f9f3e7;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+}
+
+.containerNew .card:hover .face.face2 {
+  transform: translateY(0);
+}
+
+.containerNew .card .face.face2 .content p {
+  margin: 0;
+
+  padding: 0;
+}
+
+.containerNew .card .face.face2 .content a {
+  text-decoration: none;
+
+  margin: 15px 0 0;
+  display: inline-block;
+
+  font-weight: 900;
+
+  color: #333;
+  padding: 5px;
+
+  border: 1px solid #333;
+}
+.containerNew .card .face.face2 .content a:hover {
+  background: #333;
+  color: #fff;
+}
+
+@media only screen and (max-width: 1050px) {
+  .containerNew {
+    width: 800px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .containerNew {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .containerNew {
+    width: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

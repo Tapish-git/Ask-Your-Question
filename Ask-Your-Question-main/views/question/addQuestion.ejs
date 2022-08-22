@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate.ejs') %>
+    <div class="row">
+        <h1 class="text-center">Add the question</h1>
+        <div class="col-6 offset-3">
+            <form action="/newQuestion" method="POST" class="validated-form" novalidate enctype="multipart/form-data"> 
+                <div class="mb-3">
+                    <label for="question" class="form-label">Question</label>
+                    <textarea name="query[question]" id="question" class="form-control" cols="30" rows="5"
+                        required></textarea>
+                </div>
+                <!-- <div class="mb-3">
+                    <label for="date">Date of Posting Question</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">MM-DD-YYYY</span>
+                        <input type="text" name="query[dateOfAsking]" id="date">
+                    </div>
+                </div> -->
+                <div class="mb-3">
+                    <label class="form-label" for="image">Choose Image</label>
+                    <input type="file" name="image" id="image" multiple>
+                </div>
+                <div class="mb-3 d-grid">
+                    <button class="btn btn-success">
+                        Submit Your Question
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

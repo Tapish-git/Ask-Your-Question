@@ -1,0 +1,159 @@
+/* body {
+  margin: 0;
+  padding: 0;
+
+  min-height: 100vh;
+
+  background: 0333;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: consolas;
+} */
+
+.show__both {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-items: center; */
+  align-items: baseline;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.show__question {
+  /* border: 2px solid red; */
+  border: 2px inset lightgray;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  height: auto;
+  width: 700px;
+  margin: 10px;
+  padding: 10px;
+  position: sticky;
+  top: 25px;
+}
+.question__answer {
+  /* border: 2px solid green; */
+  border: 2px inset lightgray;
+  border-radius: 10px;
+  height: auto;
+  width: 700px;
+  margin: 10px;
+  background-color: whitesmoke;
+  padding: 10px;
+  /* position: absolute; */
+  /* margin-left: 750px; */
+}
+.question,
+.answer {
+  font-weight: 700;
+}
+.imageAdjust {
+  max-height: 600px;
+  max-width: auto;
+  height: auto;
+  width: auto;
+  margin: 10px;
+  border: 2px solid darkmagenta;
+}
+.question__author {
+  display: flex;
+  justify-content: space-between;
+}
+.question__answer {
+  display: flex;
+  flex-direction: column;
+}
+.question__buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.deleteButton,
+.answerButton,
+.editButton {
+  margin-bottom: 5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.img-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.column img {
+  opacity: 0.8;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.column img:hover {
+  opacity: 1;
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+  top: 20px;
+  /* bottom: 20px; */
+  margin-bottom: 30px;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.imageShow {
+  display: flex;
+}
+
+@media only screen and (max-width: 850px) {
+  .show__both {
+    flex-direction: column;
+  }
+  .show__question {
+    width: auto;
+    position: static;
+  }
+  .question__answer {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .question__author {
+    flex-direction: column;
+  }
+  .show__question {
+    position: static;
+  }
+  /* .question__answer {
+
+  } */
+}

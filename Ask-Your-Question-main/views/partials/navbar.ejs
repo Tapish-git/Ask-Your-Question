@@ -1,0 +1,57 @@
+<style>
+  .logo {
+    /* filter:invert(80%); */
+    height: 40px;
+    width: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+</style>
+
+<div class="mb-4">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: auto">
+    <div class="container-fluid">
+      <img
+        src="https://cdn3.vectorstock.com/i/thumb-large/84/82/question-mark-faq-dialog-chat-bubble-circle-icon-vector-23828482.jpg"
+        class="logo"
+        alt=""
+      />
+      <a class="navbar-brand" href="/">AskYourQuestion</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/newQuestion">Ask A Question</a>
+          </li>
+          <% if(!currentuser){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          <% }else{ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

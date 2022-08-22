@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate.ejs') %>
+<div >
+    <h1>The Question is : <%= question.question %></h1>
+    <p>Posted By : <%= question.author.username %></p>
+    <p>Posted On : <%= question.dateOfAsking %></p>
+    <% if(question.images.length != 0 ){ %> 
+    <div><img src="<%= question.images[0].url %>" alt="NO IMAGES ADDED"></div>
+    <% } %> 
+    <%if( currentuser && question.author.equals(currentuser._id)) {%>
+        <form action="/question/<%= question._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger">Delete</button>
+        </form>
+        <a href="/question/<%= question._id %>/edit" class="btn btn-secondary">Edit</a>
+    <% } %> 
+        <a href="/question/<%= question._id %>/ans" class="btn btn-sm btn-danger">Answer</a>
+    <% if (question.answer.length) { %>
+        <% for(let a of question.answer){  %>
+            <div>
+                <p>Answered by <%= a.author.username %>  : <%= a.answer %> <%= a.dateOfAnswer %> </p>
+                <% if( currentuser && a.author.equals(currentuser._id)) {%>
+                    <form action="/question/<%= question._id %>/ans/<%= a._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-sm btn-info">Delete answer</button>
+                        <% if(a.images.length != 0){ %> 
+                        <div><img src="<%= a.images[0].url %>" alt="NO IMAGES ADDED"></div>
+                        <% } %> 
+                    </form>
+                <% } %>
+            <% } %>
+            </div> 
+    <% } %>
+    <% if (!question.answer.length){ %>
+        <p> No Answers for this question </p>
+    <% } %>   
+
+</div>

@@ -1,0 +1,102 @@
+<% layout('layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/stylesheets/show.css" />
+
+<div class="show__both">
+  <div class="show__question">
+    <div class="question">Question : <%= question.question %></div>
+    <div class="question__author">
+      <i class="text-muted"> Posted By : <%= question.author.username %> </i>
+      <i class="text-muted">Posted On : <%= question.dateOfAsking %></i>
+    </div>
+    <% if(question.images.length !=0 ){ %>
+    <div class="img-row">
+      <% for(let i of question.images){ %>
+      <div class="column">
+        <img src="<%= i.url %>" alt="" onclick="openImage(this);" />
+      </div>
+      <% } %>
+    </div>
+
+    <div class="container">
+      <span onclick="this.parentElement.style.display='none'" class="closebtn"
+        >&times;</span
+      >
+      <img id="expandedImg" style="width: 100%" />
+      <div id="imgtext"></div>
+    </div>
+    <% } %>
+    <div class="question__buttons">
+      <%if( currentuser && question.author.equals(currentuser._id)) {%>
+      <form
+        action="/question/<%= question._id %>?_method=DELETE"
+        method="POST"
+        class="deleteButton"
+      >
+        <button class="btn btn-danger">Delete</button>
+      </form>
+
+      <% } %>
+      <a
+        href="/question/<%= question._id %>/ans"
+        class="btn btn-sm btn-success answerButton"
+        >Answer</a
+      >
+    </div>
+    <hr />
+  </div>
+
+  <div class="question__answer">
+    <% if (question.answer.length) { %> <% for(let a of question.answer){ %>
+    <div class="wholeAnswer">
+      <div class="answer">Answer : <%= a.answer %></div>
+      <div class="question__author">
+        <i class="text-muted"> Posted By : <%= a.author.username %> </i>
+        <i class="text-muted">Posted On : <%= a.dateOfAnswer %></i>
+      </div>
+
+      <% if(a.images.length !=0){ %>
+      <div class="imageShow">
+        <div class="img-row">
+          <% for(let i of a.images){ %>
+          <div class="column">
+            <img src="<%= i.url %>" alt="" onclick="openImage(this);" />
+          </div>
+          <% } %>
+        </div>
+
+        <div class="container">
+          <span
+            onclick="this.parentElement.style.display='none'"
+            class="closebtn"
+            >&times;</span
+          >
+          <img id="expandedImg" style="width: 100%" />
+          <div id="imgtext"></div>
+        </div>
+      </div>
+
+      <% } %> <% if( currentuser && a.author.equals(currentuser._id)) {%>
+      <form
+        action="/question/<%= question._id %>/ans/<%= a._id %>?_method=DELETE"
+        method="POST"
+      >
+        <button class="btn btn-sm btn-info">Delete answer</button>
+      </form>
+      <% } %>
+      <hr />
+    </div>
+    <% } %> <% } %> <% if (!question.answer.length){ %>
+    <p>No Answers for this question</p>
+    <% } %>
+  </div>
+</div>
+
+<script>
+  function openImage(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+  }
+</script>

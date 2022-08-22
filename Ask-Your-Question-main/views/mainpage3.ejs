@@ -1,0 +1,50 @@
+<% layout('layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/stylesheets/mainpage3.css">
+    <div class="containerNew">
+        <% for (let q of quest){ %>
+        <div class="card">
+
+            <div class="face facel">
+
+                <div class="content">
+                    <!-- <% //if(q.images.length != 0 ){ %>
+
+                    <img
+                        src="<//%= q.images[0].url %>">
+                        <% //} %> -->
+
+                        <h3><%= q.question %></h3>
+                        <div  style="margin: 5px; color: lightgray;">Total <%= q.answer.length %> responses</div>
+
+                </div>
+
+            </div>
+
+            <div class="face face2">
+
+                <div class="content">
+
+                    <p>
+                        <% if (q.answer.length) { %>
+                            <div>
+                                <%= q.answer[0].answer %>
+                            </div>
+                        <% } %>
+                        <% if (!q.answer.length) { %>
+                            <div>
+                                No Answers for the question
+                            </div>
+                        <% } %>
+                    </p>
+
+                    <a href="/question/<%= q._id %>">Read More</a>
+                    
+
+                </div>
+                
+            </div>
+            
+        </div>
+        <% } %>
+    </div>
+

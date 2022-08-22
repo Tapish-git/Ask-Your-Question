@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/stylesheets/navbar2.css" />
+
+<body id="body" class="">
+  <header id="header">
+    <div class="smalllogo">
+      <a href="#welcome-section" class="logolink">
+        <h2><i class="fas fa-code"></i>AskYourQuestion</h2>
+      </a>
+    </div>
+    <button class="nav-toggle">
+      <span class="hamburger"></span>
+    </button>
+    <nav class="nav" id="navbar" style="background: rgb(255, 255, 255)">
+      <div class="logo">
+        <div class="imageLogo">
+          <img
+            src="https://cdn3.vectorstock.com/i/thumb-large/84/82/question-mark-faq-dialog-chat-bubble-circle-icon-vector-23828482.jpg"
+            alt=""
+          />
+        </div>
+        <div>
+          <a href="nav.html" id="logo">
+            <p style="font-size: 25px">AskYourQuestion</p>
+          </a>
+        </div>
+      </div>
+
+      <ul class="nav__list" id="navlinkitems">
+        <li class="nav__item">
+          <a href="#home-section" class="nav__link" id="home">Home</a>
+        </li>
+        <li class="nav__item">
+          <a href="#about-section" class="nav__link" id="about">About</a>
+        </li>
+        <li class="nav__item">
+          <a href="#skills-section" class="nav__link" id="service">Skills</a>
+        </li>
+        <li class="nav__item">
+          <a href="#projects-section" class="nav__link" id="work">Work</a>
+        </li>
+
+        <li class="nav__item">
+          <a href="#contacts-section" class="nav__link" id="contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    window.onscroll = function () {
+      scrollFunction();
+    };
+    function scrollFunction() {
+      document.getElementById("navbar").style.background = "#fff";
+    }
+
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelectorAll(".nav__link");
+
+    navToggle.addEventListener("click", () => {
+      document.body.classList.toggle("nav-open");
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        document.body.classList.remove("nav-open");
+      });
+    });
+  </script>
+</body>

@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate.ejs') %>
+    <div class="row">
+        <h1 class="text-center">Answer the question</h1>
+        <div class="col-6 offset-3">
+            <form action="/question/<%= question._id %>/ans" method="POST" class="validated-form" novalidate enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="answer" class="form-label">Question : <%= question.question %></label>
+                    <textarea name="ans[answer]" id="answer" class="form-control" cols="30" rows="5"
+                        required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Choose Image</label>
+                    <input type="file" name="image" id="image" multiple>
+                </div>
+
+                <div class="mb-3 d-grid">
+                    <button class="btn btn-success">
+                        Submit Your Answer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

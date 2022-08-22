@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate.ejs') %>
+  
+
+  <div class="container">
+    <h1>All Questions</h1>
+    
+    <% for (let q of quest){ %>
+    <div class="card mb-3 text-white bg-dark border-dark">
+        <div class="row">
+            <div class="col-md-3 bg-light">
+                
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title"><%= q.question %> (Total answers : <%= q.answer.length %>)</h5>
+                    <p class="card-text">
+                      <% if (q.answer.length) { %>  
+                        <%= q.answer[0].answer %>
+                      <% } %>
+                      <% if (!q.answer.length) { %>
+                        No Answers for the question
+                      <% } %>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted"><i>asked by - <%= q.author.username %> on <%= q.dateOfAsking %></i></small>
+                    </p>
+                    <a href="/question/<%= q._id %>" class="card-link btn btn-secondary btn-sm">View More</a>
+                </div>
+            </div>
+            <div class="col-md-3 bg-light">
+                
+            </div>
+        </div>
+    </div>
+    <% }%>
+    </div>
+
+  
